@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    username: postgres
+    password: mysecretpassword
+    url: jdbc:postgresql:smokeTest
+    driver-class-name: org.postgresql.Driver
+
+server:
+  port: 8090
