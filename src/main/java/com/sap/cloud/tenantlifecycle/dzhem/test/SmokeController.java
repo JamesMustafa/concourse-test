@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/test")
 public class SmokeController {
 
-    static final String TEST_STRING = "test-string";
-
     private final SmokeService smokeService;
 
     public SmokeController(SmokeService smokeService) {

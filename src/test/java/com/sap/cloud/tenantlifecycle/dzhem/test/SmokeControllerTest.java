@@ -25,7 +25,7 @@ public class SmokeControllerTest {
     public void testActivation() throws Exception {
         mvc.perform(MockMvcRequestBuilders.post("/test")
                 .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(MockMvcResultMatchers.content().string(SmokeController.TEST_STRING))
+                .andExpect(MockMvcResultMatchers.content().string("1"))
                 .andDo(result -> mvc.perform(MockMvcRequestBuilders
                         .get("/test/{id}", result.getResponse().getContentAsString())
                         .contentType(MediaType.APPLICATION_JSON))

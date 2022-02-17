@@ -1,0 +1,21 @@
+platform: linux
+container_limits: {} #IDK what this does
+image_resource:
+  type: registry-image
+  source:
+    repository: maven
+    tag: 3.6.3
+  caches:
+    - path: $HOME/.m2/repository #We will provide an input called 'src' to this Task
+  inputs:
+    - name: github-test
+  outputs:
+    - name: build #What do we want this task to do? Tell Concourse the commands it should execute in this Task
+  run:
+    path: 'bash'
+    args:
+      - -c
+      - |
+        mvn -f github-test/pom.xml test
+        # Make this output available to the 'test' Job
+        cp -R github-test/* build
