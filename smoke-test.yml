@@ -5,8 +5,6 @@ image_resource:
   source:
     repository: maven
     tag: 3.6.3
-  caches:
-    - path: $HOME/.m2/repository #We will provide an input called 'src' to this Task
   inputs:
     - name: github-test
   outputs:
