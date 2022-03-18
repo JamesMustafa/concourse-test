@@ -12,22 +12,18 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/test")
 public class SmokeController {
 
-    private final SmokeService smokeService;
-
-    public SmokeController(SmokeService smokeService) {
-        this.smokeService = smokeService;
-    }
-
     @PostMapping
-    public ResponseEntity<Long> activate() {
-        Smoke smoke = smokeService.createSmoke();
-        return ResponseEntity.status(HttpStatus.CREATED).body(smoke.getId());
+    public ResponseEntity<Integer> activate() {
+        return ResponseEntity.status(HttpStatus.CREATED)
+                             .body(69);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Smoke> checkResult(@PathVariable("id") String id) {
-        return smokeService.getSmoke(Long.valueOf(id))
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+    public ResponseEntity<String> checkResult(@PathVariable("id") Integer id) {
+        if (id != 69) {
+            return ResponseEntity.notFound()
+                                 .build();
+        }
+        return ResponseEntity.ok("Success");
     }
 }
