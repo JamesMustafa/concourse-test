@@ -1,0 +1,4 @@
+---
+host: smoke-test
+domain: cfapps.sap.hana.ondemand.com
+service-postgresql-name: smoke-test-db

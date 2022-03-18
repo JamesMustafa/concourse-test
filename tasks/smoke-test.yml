@@ -16,6 +16,4 @@ run:
   args:
     - -c
     - |
-      mvn -f github-test/pom.xml test
-      # Make this output available to the 'test' Job
-      cp -R github-test/* build
+      java -jar github-test/target/test-0.0.1.jar

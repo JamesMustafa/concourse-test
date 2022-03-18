@@ -1,5 +1,6 @@
 package com.sap.cloud.tenantlifecycle.dzhem.test;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,9 +19,9 @@ public class SmokeController {
     }
 
     @PostMapping
-    public ResponseEntity<String> activate() {
+    public ResponseEntity<Long> activate() {
         Smoke smoke = smokeService.createSmoke();
-        return ResponseEntity.ok(smoke.getId().toString());
+        return ResponseEntity.status(HttpStatus.CREATED).body(smoke.getId());
     }
 
     @GetMapping("/{id}")

@@ -1,0 +1,5 @@
+---
+create-services:
+  - name: "((service-postgresql-name))"
+    broker: postgresql-db
+    plan: development
